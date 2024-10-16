@@ -1,1 +1,191 @@
 /* You can add global styles to this file, and also import other style files */
+.heading-with-border{
+    display: inline-block;
+    border-bottom: 2px solid #f45207;
+ }
+ .scrolling-text {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+  
+  .scrolling-text::after {
+    content: '';
+    display: inline-block;
+    padding-left: 100%; /* Ensures the text starts outside the view */
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .scrolling-text {
+    animation: scroll 10s linear infinite;
+  }
+  .mu-page-breadcrumb-area .breadcrumb{
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black; 
+    letter-spacing: 1px;
+}
+
+.mu-page-breadcrumb-area p{
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black; 
+    letter-spacing: 1px;
+}
+.navbar-brand img{
+  position: relative;
+  align-items:flex-end;
+}
+
+@media only screen and (max-width: 600px) {
+  .slick-prev,
+  .slick-next
+  {
+      font-size: 0;
+      line-height: 0;
+  
+      position: absolute;
+      top: 12%;
+  
+      display: block;
+  
+      width: 20px;
+      height: 20px;
+      margin-top: -10px;
+      padding: 0;
+  
+      cursor: pointer;
+  
+      color: transparent;
+      border: none;
+      outline: none; 
+      z-index: 9;
+  }
+  
+}
+
+
+
+@media only screen and (min-width: 992px) {
+  .slick-prev,
+  .slick-next
+  {
+      font-size: 0;
+      line-height: 0;
+  
+      position: absolute;
+      top: 12%;
+  
+      display: block;
+  
+      width: 20px;
+      height: 20px;
+      margin-top: -10px;
+      padding: 0;
+  
+      cursor: pointer;
+  
+      color: transparent;
+      border: none;
+      outline: none; 
+      z-index: 9;
+  }
+  
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .slick-prev,
+  .slick-next
+  {
+      font-size: 0;
+      line-height: 0;
+  
+      position: absolute;
+      top: 50%;
+  
+      display: block;
+  
+      width: 20px;
+      height: 20px;
+      margin-top: -10px;
+      padding: 0;
+  
+      cursor: pointer;
+  
+      color: transparent;
+      border: none;
+      outline: none; 
+      z-index: 9;
+  }
+  
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .slick-prev,
+  .slick-next
+  {
+      font-size: 0;
+      line-height: 0;
+  
+      position: absolute;
+      top: 50%;
+  
+      display: block;
+  
+      width: 20px;
+      height: 20px;
+      margin-top: -10px;
+      padding: 0;
+  
+      cursor: pointer;
+  
+      color: transparent;
+      border: none;
+      outline: none; 
+      z-index: 9;
+  }
+  
+}
+p{
+  font-size: 17px;
+}
+ul li{
+  font-size: 17px;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+h2{
+  font-size: 30px !important;
+}
+h1{
+  font-size: 32px !important;
+}
+h3{
+  font-size: 28px !important;
+}
+h2{
+  font-size: 26px !important;
+}
+h1{
+  font-size: 24px !important;
+}
+a{
+  text-decoration: none !important;
+  font-size: 20px;
+}

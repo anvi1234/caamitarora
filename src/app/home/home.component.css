@@ -1,0 +1,283 @@
+
+.responsive-image {
+    max-width: 100%;
+    height: 700px;
+    display: block;
+    margin: 0 auto; /* Center the image */
+  }
+ /* .mu-slider-img img{
+    background-size: cover;
+
+ } */
+ .about h2{
+    display: block;
+    float: left;
+ }
+
+
+ .about p{
+    line-height: 2 !important;
+    text-align: justify;
+    font-family: 'Montserrat';
+ }
+ .star{
+    font-weight: bold;
+    color:orange;
+    font-size: 15px;
+    
+ }
+
+ ul li{
+    line-height: 2 !important;
+    font-family: 'Montserrat';
+ }
+ .responsive-image-banner {
+    width: 100%;
+    margin: 0 auto;
+        background-size: cover;
+        object-fit: contain;
+    
+  }
+ 
+ .imageChange{
+   display: flex;
+	align-items: center;
+	justify-content: center
+ }
+  .imageChange img{
+ 
+   width: 100%;
+   margin-top: 25%;
+        
+  }
+ 
+ 
+ .mu-latest-course-single{
+    border: 5px solid black;
+ }
+ .mu-latest-course-single-content h4 a {
+    font-family: serif;
+    font-style: italic;
+    color: rgb(77, 4, 72);
+
+ }
+ /* .mu-slider img{
+    object-fit: contain;
+ } */
+
+
+
+
+
+.circular--square { border-radius: 50%; }
+
+
+#mu-contact{
+     background-color: #c9e6f2;
+}
+
+
+#mu-latest-courses h2{
+   padding-top:20px;
+}
+.mu-title h2{
+   padding-top:20px !important;
+
+}
+
+.centered {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ }
+#mu-latest-course-slide{
+   padding-top:20px !important;
+}
+
+
+ #mu-slider {
+   display: inline;
+   float: left;
+   width: 100%;
+ }
+ #mu-slider .mu-slider-single {
+   display: inline;
+   float: left;
+   width: 100%;
+   position: relative;
+ }
+ #mu-slider .mu-slider-single .mu-slider-img {
+   display: inline;
+   float: left;
+   width: 100%;
+   height: 500px;
+ }
+ #mu-slider .mu-slider-single .mu-slider-img:after {
+   
+   content: '';
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+ }
+ #mu-slider .mu-slider-single .mu-slider-img figure {
+   height: 100%;
+   width: 100%;
+ }
+ #mu-slider .mu-slider-single .mu-slider-img figure img {
+   width: 100%;
+   height: 100%;
+ }
+ #mu-slider .mu-slider-single .mu-slider-content {
+   color: #fff;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 20%;
+   padding: 0 15%;
+   width: 100%;
+   text-align: center;
+   height: 100%;
+ }
+ #mu-slider .mu-slider-single .mu-slider-content h4 {
+   letter-spacing: 1px;
+   margin-bottom: 0;
+ }
+ #mu-slider .mu-slider-single .mu-slider-content span {
+   display: inline-block;
+   height: 1px;
+   width: 100px;
+ }
+ #mu-slider .mu-slider-single .mu-slider-content h2 {
+   font-size: 50px;
+   line-height: 80px;
+   margin-bottom: 10px;
+ }
+ #mu-slider .mu-slider-single .mu-slider-content p {
+   font-size: 18px;
+   letter-spacing: 0.5px;
+   line-height: 28px;
+ }
+ #mu-slider .mu-slider-single .mu-slider-content a {
+   margin-top: 25px;
+ }
+ #mu-slider .slick-prev,
+ #mu-slider .slick-next {
+   height: 60px;
+   width: 60px;
+ }
+ #mu-slider .slick-prev:before,
+ #mu-slider .slick-next:before {
+   color: #fff;
+   font-size: 25px;
+ }
+ .red-color-btn{
+   height: auto;
+   width: 100%;
+   font-size: 50px;
+   opacity: .4;
+   height: 100%;
+
+   background-color: grey;
+   color: black;
+   border: none;
+   padding: 10px;
+ }
+ 
+ #mu-our-teacher .row{
+  display: flex !important;
+ justify-content: center !important; /* Center the columns inside the row */
+ }
+
+
+#mu-testimonial .mu-testimonial-area .mu-testimonial-content .mu-testimonial-item .mu-testimonial-quote blockquote:after {
+  content: '\f10e';
+  color: #fff;
+  font-family: fontAwesome;
+  font-style: italic;
+  position: absolute;
+  bottom:0px;
+  right: 2%;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .mu-latest-course-single-content h4{
+      font-size: 15px;
+  }
+  .imageChange img{
+    width: 100%;
+    margin-top: 5%;
+         
+   }
+  }
+  @media only screen and (max-width: 768px) {
+    .responsive-image {
+        width: 100%;
+        height: 300px;
+        display: block;
+        margin: 0 auto;
+        background-size: cover;
+        object-fit: contain;
+        margin-bottom: 0px;
+    }
+   
+    .imageChange img{
+ 
+      width: 100%;
+      margin-top: 5%;
+           
+    }     
+ }  
+
+ @media only screen and (max-width: 600px) {
+  .mu-latest-course-single-content h4{
+      font-size: 10px
+  }
+  .imageChange img{
+
+    width: 100%;
+    margin-top: 5%;
+         
+   }
+
+}
+@media only screen and (min-width: 1025px) {
+  .imageChange img{
+     width: 100%;
+     margin-top: 25%;
+          
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .mu-latest-course-single-content h4{
+      font-size: 15px;
+  }
+  .imageChange img{
+
+    width: 100%;
+    margin-top: 5%;
+         
+   }
+
+}
+#mu-about-us{
+  margin: 10px;
+}
+
+@media (max-width: 767px) {
+
+}
+.mu-our-teacher-social h4{
+color: white;
+position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+align-items: center;
+font-size: 20px;
+}

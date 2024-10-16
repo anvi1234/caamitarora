@@ -1,0 +1,19 @@
+
+
+.media-object{
+    width: 70px;
+    height: 50px !important;
+    position: relative;
+    bottom: 15px;
+}
+
+p{
+    font-family: 'Montserrat' !important;
+}
+
+ul, ol{
+    font-family: 'Montserrat' !important;
+}
+table{
+    font-family: 'Montserrat' !important;
+}

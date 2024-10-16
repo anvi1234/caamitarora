@@ -1,0 +1,18 @@
+
+
+
+
+
+ 
+
+
+.picsum-img-wrapper {
+    width: 100%; /* Ensures the image wrapper takes the full width */
+    overflow: hidden; /* Hides any overflow */
+}
+
+.picsum-img-wrapper img {
+    width: 100%; /* Make the image fill the width */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 0;
+}

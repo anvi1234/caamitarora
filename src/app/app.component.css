@@ -1,8 +1,199 @@
 .navbar-brand img{
-    width: 70px;
+    width: 105px;
+    height: 105px;
     position: relative;
     bottom: 20px;
+    float: inline-end;
+   
 }
 .navbar{
-    min-height: 70px !important;
+    min-height: 105px !important;
+}
+.mu-top-email .fa{
+    font-size: 20px;
+     color: rgb(246, 108, 3);
+    
+}
+.mu-top-email span{
+    font-size: 20px;
+    padding-left: 10px;
+    color: black;
+}
+.mu-top-phone .fa{
+    font-size: 20px;
+  
+        color: blue;
+}
+.mu-top-phone span{
+    font-size: 20px;
+    padding-left: 10px;
+    color: black;
+}
+.navbar-collapse a{
+    color: black;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+.whatsapp-button {
+    background-color: #25D366;
+    color: white;
+   position: fixed;
+   bottom: 40px;
+   right: 20px;
+   z-index: 1000;
+}
+.whatsapp-button:hover {
+    background-color: #20b358;
+}
+.whatsapp-button span{
+    font-size: 18px;
+    padding: 10px
+}
+.mu-top-social-nav .fa{
+    font-size: 20px;
+}
+
+
+
+#top-menu{
+    position: relative;
+    top: 13px;
+  
+}
+#top-menu a{
+    font-size: 20px;
+}
+.logo3{
+    font-size:3vw;
+    font-family: fontAwesome;
+    font-weight: bold;
+    position: absolute;
+    left: 13%;
+    top: 25px;
+    letter-spacing: 2px;
+    color:blue
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+ .logo3 {
+    display: none;
+ }
+ .logo2{
+    position: relative;
+    top: 3px;
+    right: 3%;
+
+ }
+ a{
+    cursor: pointer;
+ }
+ .mu-header-top-left{
+    text-align: center;
+ }
+ #mu-header .mu-header-area .mu-header-top-right{
+    position: relative;
+align-items: center;
+text-align: center;
+top: 6px;
+ }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .logo3 {
+       
+      display: none;
+ } 
+ .logo2{
+    position: relative;
+    top: 3px;
+    right: 3%;
+
+     }
+     #mu-header .mu-header-area .mu-header-top-right{
+        position: relative;
+align-items: center;
+text-align: center;
+top: 6px;
+     }
+}
+@media only screen and (min-width: 992px) {
+    .logo3 {
+       
+        font-size: 28px;
+        font-family: fontAwesome;
+        font-weight: bold;
+        position: absolute;
+        left: 13%;
+        top: 39px;
+        letter-spacing: 2px;
+        color: blue;
+ } 
+ .logo2{
+    position: relative;
+    top: 3px;
+    right: 3%;
+
+     }
+     #mu-header .mu-header-area .mu-header-top-right{
+        position: relative;
+align-items: center;
+text-align: center;
+top: 6px;
+     }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 600px)  {
+    .logo3 {
+       
+        font-size: 22px;
+        font-family: fontAwesome;
+        font-weight: bold;
+        position: absolute;
+        left: 27%;
+        top: 34px;
+        letter-spacing: 2px;
+        color: blue;
+     } 
+     .logo2{
+        position: relative;  
+    
+         }
+         #mu-header .mu-header-area .mu-header-top-right{
+            position: relative;
+    align-items: center;
+    text-align: center;
+    top: 6px;
+         }
+}
+
+
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1025px) {
+    .logo3{
+        font-size:3vw;
+        font-family: fontAwesome;
+        font-weight: bold;
+        position: absolute;
+        left: 13%;
+        top: 25px;
+        letter-spacing: 2px;
+        color:blue
+    }
+}
+
+.mu-header-area{
+    height: auto;
+}
+
+
+
+/* position: absolute;
+right: 40px;
+bottom: -34px; */
+
+#top-menu a{
+    cursor: pointer !important;
 }

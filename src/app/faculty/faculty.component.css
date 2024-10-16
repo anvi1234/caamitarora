@@ -1,0 +1,192 @@
+
+
+h4{
+    font-weight: bold;
+}
+
+.textured-background{
+    line-height: 1.7;
+    word-wrap: break-word;
+    height: 280px;
+    padding: 4px;
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(19,0,255,1) 0%, rgba(213,13,224,1) 0%, rgba(16,121,166,1) 0%, rgba(5,7,60,1) 100%);
+}
+.mu-course-container{
+    color: white;
+}
+
+.textured-background h4{
+    color: white !important;
+    font-size: 18px !important;
+    font-family: math;
+}
+
+.word-limit {
+    max-width: 100%; /* set the maximum width to 100% of the parent container */
+    overflow: hidden; /* hide any excess text */
+  }
+  
+  .word-limit span {
+    display: -webkit-box;
+    -webkit-line-clamp: 100; /* limit the number of words to 100 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .mu-course-container h3{
+    color: black;
+  }
+ 
+  
+  .col-lg-3,.col-lg-9{
+   
+    padding: 0px;
+  }
+  
+  .responsive-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .responsive-image img {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(213,13,224,1) 0%, rgba(16,121,166,1) 0%, rgba(230,143,32,1) 0%, rgba(148,92,16,1) 56%, rgba(134,82,7,1) 100%, rgba(5,7,60,1) 100%);
+    object-fit: contain;
+    
+  }
+  #mu-course-content .mu-title{
+    margin-bottom: 8px;
+    text-align: left;
+    font-family: 'FontAwesome'
+ }
+
+  .border-2 img{
+    border-bottom: 30px solid  rgb(5, 5, 50);
+  }
+
+  .border-1 img{
+    border-bottom: 30px solid  rgba(16,121,166,1);
+  }
+  .margin{
+    margin-bottom: 10px;
+  }
+  .row-spacing {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+ .desc{
+    color: white;
+  }
+ .padding{
+   margin: 8px;
+   text-align: justify;
+ }
+
+  
+ @media (max-width: 768px) {
+    .textured-background .des{
+      font-size: 9px !important;
+}
+.detail{
+  color:orange;
+  font-size: 13px;
+}
+ }
+
+
+ @media only screen and (max-width: 600px) {
+    .responsive-image img{
+      object-fit: contain;
+    }
+    .textured-background{
+        padding: 14px;
+       
+    }
+    .desc{
+      font-size: 9px !important;
+        line-height: 1.5;
+    }
+  
+   h2{
+    font-size: 18px;
+
+  }
+  .mu-title{
+    text-align: center;
+  }
+  .detail{
+    color:orange;
+    font-size: 13px;
+  }
+ }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .responsive-image img{
+        object-fit: contain;
+      }
+      .textured-background{
+          padding: 14px;
+         
+      }
+      .desc{
+        font-size: 12px !important;
+        line-height: 1.5;
+    }
+    .detail{
+      color:orange;
+      font-size: 13px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .responsive-image img{
+        object-fit: fill;
+      }
+      .textured-background{
+          padding: 5px;
+         
+      }
+
+      .desc{
+        font-size: 13px !important;
+        line-height: 1.5;
+    } 
+    .detail{
+      color:orange;
+      font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+  .responsive-image img{
+      object-fit: fill;
+    }
+    .textured-background{
+        padding: 5px;
+       
+    }
+
+    .desc{
+      font-size: 15px !important;
+      line-height: 1.5;
+  } 
+  .detail{
+    color:orange;
+    font-size: 15px;
+  }
+}
+
+#mu-course-content{
+  background-color: white !important;
+  padding-top: 20px !important;
+}
+.desc{
+  font-size: 1.1vw;
+  line-height: 1.4;
+  font-family: 'Montserrat';
+}

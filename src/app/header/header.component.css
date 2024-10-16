@@ -1,0 +1,284 @@
+
+.navbar-brand img{
+    width: 105px;
+    height: 105px;
+    position: relative;
+    bottom: 20px;
+}
+.navbar{
+    min-height: 105px;
+}
+
+.logo3{
+    font-size:2.5vw;
+    font-family: fontAwesome;
+    font-weight: bold;
+    position: absolute;
+    left: 13%;
+    bottom: 15px;
+    letter-spacing: 2px;
+    color:blue
+}
+
+
+.navbar{
+    min-height: 100px !important;
+}
+.mu-top-email .fa{
+    font-size: 20px;
+     color: rgb(246, 108, 3);
+    
+}
+.mu-top-email span{
+    font-size: 20px;
+    padding-left: 10px;
+    color: black;
+}
+.mu-top-phone .fa{
+    font-size: 20px;
+  
+        color: blue;
+}
+.mu-top-phone span{
+    font-size: 20px;
+    padding-left: 10px;
+    color: black;
+}
+.navbar-collapse a{
+    color: black;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+.whatsapp-button {
+    background-color: #25D366;
+    color: white;
+   position: fixed;
+   bottom: 40px;
+   right: 20px;
+   z-index: 1000;
+}
+.whatsapp-button:hover {
+    background-color: #20b358;
+}
+.whatsapp-button span{
+    font-size: 18px;
+    padding: 10px
+}
+.mu-top-social-nav .fa{
+    font-size: 20px;
+    
+
+}
+
+
+
+#top-menu a{
+    font-size: 20px;
+}
+
+a{
+    cursor: pointer;
+ }
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+ .logo3 {
+    display: none;
+ }
+ .logo2{
+    position: relative;
+    top: 3px;
+    right: 24%;
+
+ }
+ #mu-header .mu-header-area .mu-header-top-right .mu-top-social-nav {
+    display: inline-block;
+    position: absolute !important;
+    top: -39px !important;
+}
+ .navbar-brand img{
+    top:-32px;
+    height:100px
+ }
+
+ .mu-header-top-left{
+    text-align: center;
+ }
+ #mu-header .mu-header-area .mu-header-top-right{
+    position: relative;
+align-items: center;
+text-align: center;
+top: 6px;
+ }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .logo3 {
+       
+      display: none;
+ } 
+ .logo2{
+    position: relative;
+    top: 3px;
+    right: 3%;
+
+     }
+     #mu-header .mu-header-area .mu-header-top-right{
+        position: relative;
+align-items: center;
+text-align: center;
+top: 6px;
+     }
+}
+@media only screen and (min-width: 992px) {
+    .logo3 {
+       
+        font-size: 28px;
+        font-family: fontAwesome;
+        font-weight: bold;
+        position: absolute;
+        left: 13%;
+       
+        letter-spacing: 2px;
+        color: blue;
+ } 
+ .logo2{
+    position: relative;
+    top: 3px;
+    right: 3%;
+
+     }
+     #mu-header .mu-header-area .mu-header-top-right{
+        position: relative;
+align-items: center;
+text-align: center;
+top: 6px;
+     }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 600px)  {
+    .logo3 {
+       display: none;
+     } 
+     .logo2{
+        position: relative;  
+    
+         }
+        
+        
+}
+
+
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1025px) {
+    .logo3{
+        font-size:2.5vw;
+        font-family: fontAwesome;
+        font-weight: bold;
+        position: absolute;
+        left: 13%;
+     
+        letter-spacing: 2px;
+        color:blue
+    }
+   
+}
+
+.navbar-nav{
+    flex-direction: row !important;
+}
+
+.mu-header-area{
+    height: auto;
+}
+
+
+
+/* position: absolute;
+right: 40px;
+bottom: -34px; */
+
+#top-menu a{
+    cursor: pointer !important;
+}
+#navbar a{
+text-decoration: none !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-nav{
+        flex-direction: column !important;
+    }
+    .navbar-toggle{
+        display: block;
+        position: absolute;
+        right: 0px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .navbar-nav{
+        flex-direction: column !important;
+    }
+   
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .navbar-nav{
+        flex-direction: row !important;
+    }
+  
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .navbar-nav{
+        flex-direction: row !important;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .navbar-nav{
+        flex-direction: row !important;
+    }
+}
+
+
+.dropdown-menu {
+    display: none; /* Hide dropdown by default */
+    position: absolute; /* Position it below the dropdown link */
+    top: 100%; /* Below the nav item */
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure dropdown is above other elements */
+    width: 100%; /* Optional: make dropdown full width */
+}
+
+.dropdown.open .dropdown-menu {
+    display: block; /* Show when the dropdown is active */
+}
+.dropdown-item {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #007bff;
+    display: block;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1; /* Highlight on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column; /* Stack items vertically */
+       
+    }
+   
+}
+

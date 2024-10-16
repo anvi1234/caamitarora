@@ -48,11 +48,7 @@ body {
 }
 
 /* MODULES - Individual site components */
-ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
+
 
 a {
   text-decoration: none;
@@ -153,12 +149,6 @@ img {
 #mu-header .mu-header-area .mu-header-top-left .mu-top-phone i {
   margin-right: 5px;
 }
-#mu-header .mu-header-area .mu-header-top-right {
-  display: inline;
-  float: left;
-  text-align: right;
-  width: 100%;
-}
 #mu-header .mu-header-area .mu-header-top-right .mu-top-social-nav {
   display: inline-block;
 }
@@ -207,7 +197,7 @@ img {
   margin-bottom: 0px;
 }
 #mu-menu .navbar-default .navbar-nav li > a {
-  border-bottom: 2px solid transparent;
+ 
   padding-bottom: 25px;
   padding-top: 25px;
   margin-bottom: -1px;
@@ -348,7 +338,7 @@ img {
   height: 500px;
 }
 #mu-slider .mu-slider-single .mu-slider-img:after {
-  background-color: rgba(0, 0, 0, 0.5);
+  
   content: '';
   position: absolute;
   left: 0;
@@ -454,7 +444,7 @@ img {
   display: inline;
   float: left;
   width: 100%;
-  padding: 100px 0;
+  
 }
 #mu-about-us .mu-about-us-area {
   display: inline;
@@ -558,7 +548,7 @@ img {
  ABOUT US COUNTER SECTION
 ====================*/
 #mu-abtus-counter {
-  background-image: url("../img/counter-bg.jpg");
+  background-image: url("../../assets/img/banner2.png");
   background-repeat: no-repeat;
   background-size: 100%;
   display: inline;
@@ -670,7 +660,6 @@ img {
  LATEST COURSES SECTION
 ====================*/
 #mu-latest-courses {
-  background-color: #333;
   display: inline;
   float: left;
   padding: 100px 0;
@@ -903,7 +892,6 @@ img {
 ====================*/
 #mu-testimonial {
   background-attachment: fixed;
-  background-image: url("../img/testimonial-bg.jpg");
   background-position: center center;
   background-size: cover;
   display: inline;
@@ -1108,10 +1096,12 @@ img {
  COURSES PAGE
 ====================*/
 #mu-page-breadcrumb {
-  background-color: #333;
+ background-image: url(../img/F\ .png);
+ font-family:cursive;
+ color: white;
   display: inline;
   float: left;
-  padding: 30px 0;
+  padding: 60px 0;
   width: 100%;
 }
 #mu-page-breadcrumb .mu-page-breadcrumb-area {
@@ -1121,7 +1111,10 @@ img {
 }
 #mu-page-breadcrumb .mu-page-breadcrumb-area h2 {
   text-align: center;
-  color: #fff;
+  color: white;
+  font-size: 40px;
+ font-family: fontAwesome;
+
 }
 #mu-page-breadcrumb .mu-page-breadcrumb-area .breadcrumb {
   background-color: transparent;
@@ -1340,6 +1333,7 @@ img {
 }
 .mu-related-item .mu-related-item-area #mu-related-item-slide .slick-prev,
 .mu-related-item .mu-related-item-area #mu-related-item-slide .slick-next {
+
   height: 50px;
   width: 50px;
 }
@@ -2068,9 +2062,7 @@ img {
     font-size: 20px;
   }
 
-  #mu-about-us {
-    padding: 60px 0;
-  }
+
 
   #mu-about-us .mu-about-us-area .mu-about-us-right {
     margin-top: 30px;
@@ -2299,6 +2291,7 @@ img {
 
   #mu-slider .mu-slider-single .mu-slider-img {
     height: 350px;
+    object-fit: contain;
   }
 
   #mu-slider .mu-slider-single .mu-slider-content h4 {
@@ -2317,9 +2310,9 @@ img {
     font-size: 16px;
   }
 
-  #mu-slider .mu-slider-single .mu-slider-img figure img {
+  /* #mu-slider .mu-slider-single .mu-slider-img figure img {
     width: auto;
-  }
+  } */
 
   #mu-gallery .mu-gallery-area .mu-gallery-content .mu-gallery-top ul li {
     padding: 5px 10px;
@@ -2370,7 +2363,7 @@ img {
   }
 
   #mu-slider .mu-slider-single .mu-slider-img {
-    height: 270px;
+    height: 350px;
   }
 
   #mu-service .mu-service-area .mu-service-single {

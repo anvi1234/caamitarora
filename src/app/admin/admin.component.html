@@ -1,0 +1,329 @@
+<div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav hidden-xs">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#section1">Dashboard</a></li>
+          <li><a (click)="showForm('banner')">Banner</a></li>
+          <li><a (click)="showForm('teacher')">Teacher</a></li>
+          <li><a (click)="showForm('review')">Review</a></li>
+          <li><a (click)="showForm('result')">Result</a></li>
+          <li><a (click)="showForm('event')">Event</a></li>
+          <li><a (click)="showForm('buyCourse')">Buy Course</a></li>
+          <li><a (click)="showForm('contact')">Contact List</a></li>
+        
+        </ul>
+        <br>
+      </div>
+  
+      <!-- Form section -->
+      <div class="col-sm-7">
+        <div *ngIf="selectedForm === 'banner'">
+          <!-- Banner form content here -->
+          <h2>Banner Form</h2>
+          <form [formGroup]="bannerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="youtubeInput">Banner File:</label> &nbsp; &nbsp;<span style="color:red" *ngIf="isLoader">Loading...</span>
+              <input type="file" #youtubeInput (change)="onBannerFileChange($event)" class="form-control" id="youtubeInput">
+            </div>
+  
+            <div class="form-group">
+              <label for="durationInput">position:</label>
+              <input type="number" formControlName="position" class="form-control" id="durationInput">
+            </div>
+  
+            <button type="submit" class="btn btn-primary" [disabled]="isLoader || !bannerImg">Submit</button>
+          </form><br>
+          <h2>All Records</h2>
+          <div class="table-wrapper">
+          <table class="table table-striped">
+            <thead>
+              <tr >
+                <th>So No</th>
+                <th>Banner Image</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of bannerList; let i= index">
+                <td>{{i+1}}</td>
+                <td><img [src]= "item.bannerFile" height="40px" width="60px"></td>
+                <td>
+                  <span class="delete-icon" (click)="bannerDelete(item)">🗑</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+  
+        <div *ngIf="selectedForm === 'teacher'">
+          <!-- Teacher form content here -->
+          <h2>Teacher Form</h2>
+          <form [formGroup]="teacherForm" (ngSubmit)="onSubmitTeacherForm()">
+            <div class="form-group">
+              <label for="teacherName">Teacher Name:</label>
+              <input type="text" formControlName="teacherName" class="form-control" id="teacherName" placeholder="Enter teacher's name">
+            </div>
+  
+            <div class="form-group">
+              <label for="teacherImage">Teacher Image:</label>&nbsp; &nbsp;<span style="color:red" *ngIf="isLoader">Loading...</span>
+              <input type="file" #teacherImage  (change)="onTeacherFileChange($event)" class="form-control" id="teacherImage">
+            </div>
+  
+            <div class="form-group">
+              <label for="teacherDetails">Teacher Details:</label>
+              <input type="text" formControlName="teacherDetails" class="form-control" id="teacherDetails" placeholder="Enter teacher's details">
+            </div>
+  
+            <div class="form-group">
+              <label for="teacherDescription">Teacher Description:</label>
+              <textarea formControlName="teacherDescription" class="form-control" id="teacherDescription" placeholder="Enter teacher's description"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="teacherLevel">Teacher position:</label>
+              <input type="text" formControlName="position" class="form-control" id="teacherDetails" placeholder="Enter teacher's position">
+            </div>
+            <div class="form-group">
+              <label for="teacherLevel">Teacher Level:</label>
+              <select formControlName="teacherLevel" class="form-control" id="teacherLevel">
+                <option value="foundation">Foundation</option>
+                <option value="intermediate">Intermediate</option>
+              </select>
+            </div>
+  
+            <button type="submit" class="btn btn-primary" [disabled]="isLoader || !teacherImg">Submit</button>
+          </form>
+          <h2>All Records</h2>
+          <div class="table-wrapper2">
+          <table class="table table-striped">
+            <thead>
+              <tr >
+                <th>So No</th>
+                <th>Image</th>
+                <th> Name</th>
+                <th>Details</th>
+                <th>Description</th>
+                <th>Level</th>
+                <th>Position</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of teacherList; let i= index">
+                <td>{{i+1}}</td>
+                <td><img [src]= "item.teacherImage" height="40px" width="60px"></td>
+                <td>{{item.teacherName}}</td>
+                <td>{{item.teacherDetails}}</td>
+                <td>{{item.teacherDescription}}</td>
+                <td>{{item.teacherLevel}}</td>
+                <td>{{item.position}}</td>
+                <td>
+                  <span class="delete-icon" (click)="teacherDelete(item)">🗑</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+  
+        <div *ngIf="selectedForm === 'review'">
+          <!-- Review form content here -->
+          <h2>Review Form</h2>
+          <form [formGroup]="reviewForm" (ngSubmit)="onSubmitReviewForm()">
+            <div class="form-group">
+              <label for="studentImage">Student Image:</label>&nbsp; &nbsp;<span style="color:red" *ngIf="isLoader">Loading...</span>
+              <input type="file" #studentImgID   (change)="onStudentFileChange($event)" class="form-control" id="studentImage">
+            </div>
+  
+            <div class="form-group">
+              <label for="studentName">Student Name:</label>
+              <input type="text" formControlName="studentName" class="form-control" id="studentName" placeholder="Enter student's name">
+            </div>
+  
+          
+            <div class="form-group">
+              <label for="studentDetails">Batch:</label>
+              <input type="text" formControlName="studentDetails" class="form-control" id="studentDetails" placeholder="Enter student details">
+            </div>
+  
+            <div class="form-group">
+              <label for="reviewDescription">Review Description:</label>
+              <textarea formControlName="reviewDescription" class="form-control" id="reviewDescription" placeholder="Enter review description"></textarea>
+            </div>
+  
+            <button type="submit" class="btn btn-primary" [disabled]="isLoader || !studentImg">Submit</button>
+          </form>
+          <h2>All Records</h2>
+          <div class="table-wrapper2">
+          <table class="table table-striped">
+            <thead>
+              <tr >
+                <th>So No</th>
+                <th>Image</th>
+                <th> Name</th>
+                <th>Batch</th>
+                <th>Description</th>
+              
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of reviewList; let i= index">
+                <td>{{i+1}}</td>
+                <td><img [src]= "item.studentImage" height="40px" width="60px"></td>
+                <td>{{item.studentName}}</td>
+                <td>{{item.studentDetails}}</td>
+                <td>{{item.reviewDescription}}</td>
+                <td>
+                  <span class="delete-icon" (click)="bannerDelete(item)">🗑</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+  
+        <div *ngIf="selectedForm === 'result'">
+          <!-- Result form content here -->
+          <h2>Result Form</h2>
+          <form [formGroup]="resultForm" (ngSubmit)="onSubmitResultForm()">
+            <div class="form-group">
+              <label for="resultImage">Upload Result Image:</label>
+              <input type="file" formControlName="resultImage" class="form-control" id="resultImage" (change)="onResultChange($event)">
+            </div>
+  
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+  
+        <div *ngIf="selectedForm === 'buyCourse'">
+          <!-- Buy Course form content here -->
+          <h2>Buy Course Form</h2>
+          <form [formGroup]="buyCourseForm" (ngSubmit)="onSubmitBuyCourseForm()">
+        
+  
+            <div class="form-group">
+              <label for="courseType">Course Type:</label>
+              <select formControlName="courseType" class="form-control" id="courseType">
+                <option value="foundation">Foundation</option>
+                <option value="intermediate">Intermediate</option>
+              </select>
+            </div>
+  
+            <div class="form-group">
+              <label for="courseLink">Course Link (href):</label>
+              <input type="url" formControlName="courseLink" class="form-control" id="courseLink" placeholder="Enter course link">
+            </div>
+  
+            <div class="form-group">
+              <label for="courseImage">Course Image:</label>&nbsp; &nbsp;<span style="color:red" *ngIf="isLoader">Loading...</span>
+              <input type="file" #courseImgID  class="form-control" id="courseImage" (change)=" onFileChangeBuyCourse($event)">
+            </div>
+  
+            <button type="submit" class="btn btn-primary"  [disabled]="isLoader || !courseImg">Submit</button>
+          </form>
+<h2>All Records</h2>
+<div class="table-wrapper">
+  <table class="table table-striped">
+    <thead>
+      <tr >
+        <th>So No</th>
+        <th>Course Image</th>
+        <th>Course Link</th>
+        <th>Course Type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of courseList; let i= index">
+        <td>{{i+1}}</td>
+        <td><img [src]= "item.courseImage" height="40px" width="60px"></td>
+        <td>{{item.courseLink}}</td>
+        <td>{{item.courseType}}</td>
+        <td>
+          <span class="delete-icon" (click)="courseDelete(item)">🗑</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+        </div>
+
+        <div *ngIf="selectedForm === 'contact'">
+          <!-- Banner form content here -->
+          <h2>Contact List</h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>So No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of contactList;let i=index">
+                <td>{{ i+1}}</td>
+                <td>{{ item.name}}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.subject}}</td>
+                <td>{{ item.message}}</td>
+                <td>
+                  <span class="delete-icon" (click)="deleteContact(item)">🗑</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div *ngIf="selectedForm === 'event'">
+          <!-- Banner form content here -->
+          <h2>Event Form</h2>
+          <form [formGroup]="eventForm" (ngSubmit)="onSubmitEvent()">
+            <div class="form-group">
+              <label for="youtubeInput">Event File:</label> &nbsp; &nbsp;<span style="color:red" *ngIf="isLoader">Loading...</span>
+              <input type="file" #eventInput (change)="onEventFileChange($event)" class="form-control" id="youtubeInput">
+            </div>
+  
+            <div class="form-group">
+              <label for="durationInput">Event Name:</label>
+              <input type="text" formControlName="eventName" class="form-control" id="durationInput">
+            </div>
+  
+            <button type="submit" class="btn btn-primary" [disabled]="isLoader || !eventImg">Submit</button>
+          </form><br>
+          <h2>All Records</h2>
+          <div class="table-wrapper">
+          <table class="table table-striped">
+            <thead>
+              <tr >
+                <th>So No</th>
+                <th>Event Image</th>
+                <th>Event Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of eventList; let i= index">
+                <td>{{i+1}}</td>
+                <td><img [src]= "item.eventFile" height="40px" width="60px"></td>
+                <td>{{item.eventName}}</td>
+                <td>
+                  <span class="delete-icon" (click)="eventDelete(item)">🗑</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center" *ngIf="isLoader">
+    <div class="spinner-border text-success" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>

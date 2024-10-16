@@ -1,0 +1,12 @@
+
+
+
+<section id="mu-slider">
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let item of bannerData">
+      <div class="picsum-img-wrapper">
+        <img [src]="item.bannerFile" alt="Banner image" />
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</section>

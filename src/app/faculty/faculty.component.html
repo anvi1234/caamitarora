@@ -1,0 +1,118 @@
+
+  
+
+ <section id="mu-page-breadcrumb">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12">
+         <div class="mu-page-breadcrumb-area">
+          <div class="mu-title">
+            <h2 class="heading-with-border">Faculty</h2>
+          </div>
+          <p class="p">
+        
+            Our faculty consists of experienced professionals dedicated to student success and growth.
+       
+          </p>
+           
+         </div>
+        
+       </div>
+     </div>
+   </div>
+ </section>
+
+
+ <!-- End breadcrumb -->
+ <section id="mu-course-content">
+  <div class="container" id="section1">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="mu-title"  >
+          <h2 class="heading-with-border"><b>Foundation Faculty</b></h2>
+        </div><br>
+        <div class="row row-spacing" *ngFor="let item of data; let i = index">  
+          <span >
+            <span *ngIf="i % 2 === 0" >
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 responsive-image ">
+                <img [src]="item.teacherImage" alt="img">
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 textured-background">
+                <div class="padding">
+                  <h4>{{ item.teacherName }}</h4>
+                  <p class="detail word-limit">{{ item.teacherDetails }}</p>
+                  <p class="desc">{{ item.teacherDescription }}</p>
+                 </div>
+              </div>
+            </span>
+  
+            <!-- For odd rows (i % 2 !== 0): Image on the right -->
+            <span *ngIf="i % 2 !== 0">
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 textured-background">
+               <div class="padding">
+                <h4>{{ item.teacherName }}</h4>
+                <p class="detail word-limit">{{ item.teacherDetails }}</p>
+                <p class="desc">{{ item.teacherDescription }}</p>
+               </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 responsive-image ">
+                <img [src]="item.teacherImage" alt="img">
+              </div>
+            </span> 
+          </span>       
+          <!-- For even rows (i % 2 === 0): Image on the left -->
+                
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section id="mu-course-content">
+  <div class="container"  >
+    <div class="row" id="section2">
+      <div class="col-sm-12">
+        <div class="mu-title">
+          <h2 class="heading-with-border"><b>Intermediate Faculty</b></h2>
+        </div><br>
+        <div class="row row-spacing" *ngFor="let item of facultyData; let i = index">  
+          <span >
+            <span *ngIf="i % 2 === 0" >
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 responsive-image ">
+                <img [src]="item.teacherImage" alt="img">
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 textured-background">
+                <div class="padding">
+                  <h4>{{ item.teacherName }}</h4>
+                  <p class="detail word-limit">{{ item.teacherDetails }}</p>
+                  <p class="desc">{{ item.teacherDescription }}</p>
+                 </div>
+              </div>
+            </span>
+  
+            <!-- For odd rows (i % 2 !== 0): Image on the right -->
+            <span *ngIf="i % 2 !== 0">
+              <div class="col-lg-9 col-md-9 col-sm-9  textured-background">
+               <div class="padding">
+                <h4>{{ item.teacherName }}</h4>
+                <p class="detail word-limit">{{ item.teacherDetails }}</p>
+                <p class="desc">{{ item.teacherDescription }}</p>
+               </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 responsive-image ">
+                <img [src]="item.teacherImage" alt="img">
+              </div>
+            </span> 
+          </span>       
+          <!-- For even rows (i % 2 === 0): Image on the left -->
+                
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
