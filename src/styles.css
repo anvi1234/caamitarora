@@ -189,3 +189,7 @@ a{
   text-decoration: none !important;
   font-size: 20px;
 }
+.ca .media-object{
+  object-fit: cover;
+  padding: 15px
+}

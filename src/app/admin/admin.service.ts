@@ -18,7 +18,7 @@ export class AdminService {
 
   // Banner Methods
   addBanner(banner: any): Observable<any> {
-    return this.http.post(this.apiUrl, banner).pipe(catchError(this.errorMgmt));
+    return this.http.post(`${this.apiUrl}/banner/add-banner`, banner).pipe(catchError(this.errorMgmt));
   }
 
   getBanners(): Observable<any[]> {
@@ -28,6 +28,10 @@ export class AdminService {
 
   deleteBanner(id: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/banner/deletebanner/${id}`);
+  }
+
+  updateBanner(banner:any,id:any){
+    return this.http.put(`${this.apiUrl}/banner/update-banner/${id}`, banner);
   }
 
   // Teacher Methods
@@ -91,6 +95,11 @@ export class AdminService {
 
   deleteResult(id: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/result/deleteResult/${id}`);
+  }
+
+  updateResult(id:string,data:any):Observable<any>{
+    return this.http.put(`${this.apiUrl}/result/update-result/${id}`,data);
+  
   }
   addEvent(event: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/event/add-event`, event);

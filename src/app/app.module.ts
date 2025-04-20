@@ -23,9 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { initializeApp } from "firebase/app";
 import { environment } from 'src/environments/environment';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpClientModule } from '@angular/common/http';
@@ -33,7 +31,8 @@ import { AdminService } from './admin/admin.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-initializeApp(environment.firebase);
+
+
 
 @NgModule({
   declarations: [
@@ -55,6 +54,7 @@ initializeApp(environment.firebase);
     AdminComponent
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     NgbModule,

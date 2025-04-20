@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  ApiUrl:"https://amitarorabackend-pd7cc4jlq-anvi1234s-projects.vercel.app/api/v1",
+  ApiUrl:"https://amitarorabackend.vercel.app/api/v1",
   firebase : {
     apiKey: "AIzaSyB5oBx87Xx2CpnR3qcrssG9u6J7kyBUPmI",
     authDomain: "prominentacademy-9d9dd.firebaseapp.com",

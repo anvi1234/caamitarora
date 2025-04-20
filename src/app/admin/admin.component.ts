@@ -31,12 +31,18 @@ export class AdminComponent implements OnInit {
   @ViewChild('courseImgID') courseImgID!: ElementRef;
   @ViewChild('eventInput') eventInput!: ElementRef;
   @ViewChild('teacherImage') teacherImage!: ElementRef;
+  @ViewChild('resultImage') resultImage!: ElementRef;
   contactList: any[] =[];
   bannerList: any[] =[];
   courseList: any[] = [];
   reviewList: any[] =[];
   eventList:any[] = [];
   teacherList: any[] =[];
+  resultList:any[] =[];
+  bannerEdit: boolean = false;
+  bannerUkey: any;
+  resultEdit: boolean = false;
+  resultUkey: any;
   showForm(formName: string): void {
     this.selectedForm = formName;  // Set the selected form based on the link clicked
 
@@ -59,12 +65,15 @@ export class AdminComponent implements OnInit {
     if(formName === "teacher"){
       this.getTeacher();
     }
+    if(formName === "result"){
+      this.getResult()
+    }
   }
 
 
   getContactList(){
     this.adminService.getContacts().subscribe((res)=>{
-      this.contactList = res;
+      this.contactList =  [...res].reverse();
     })
   }
 
@@ -93,7 +102,8 @@ export class AdminComponent implements OnInit {
 
   createResultForm() {
     this.resultForm = this.fb.group({
-      resultImage: [null, Validators.required]  // File input for result image
+      resultImage: [null, Validators.required],
+      position:['']  // File input for result image
     });
   }
   createReviewForm() {
@@ -112,7 +122,8 @@ export class AdminComponent implements OnInit {
 
   createEventForm(){
     this.eventForm = this.fb.group({
-      eventName: ['']  // Numeric input control with validation
+      eventName: [''],
+      position:[null]  // Numeric input control with validation
     });
   }
   createTeacherForm() {
@@ -126,29 +137,50 @@ export class AdminComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.bannerForm.valid && this.bannerImg) {
+    if(this.bannerEdit && this.bannerImg){
       let Obj = {
         'bannerFile': this.bannerImg,
         'position':this.bannerForm.get('position')?.value
       }
-      this.adminService.addBanner(Obj).subscribe((res)=>{
+      this.adminService.updateBanner(Obj,this.bannerUkey).subscribe((res)=>{
+        alert("Banner updated Successfuly")
         this.bannerForm.reset();
         this.youtubeInput.nativeElement.value = '';
         this.bannerImg = null;
         this.getBanner();
-        alert("Banner added Successfuly")
+        this.bannerEdit = false;
+       
       })
       // Implement form submission logic here
-    } else {
-      console.log('Form is invalid');
+
     }
+    else{
+      if (this.bannerForm.valid && this.bannerImg) {
+        let Obj = {
+          'bannerFile': this.bannerImg,
+          'position':this.bannerForm.get('position')?.value
+        }
+        this.adminService.addBanner(Obj).subscribe((res)=>{
+          this.bannerForm.reset();
+          this.youtubeInput.nativeElement.value = '';
+          this.bannerImg = null;
+          this.getBanner();
+          alert("Banner added Successfuly")
+        })
+        // Implement form submission logic here
+      } else {
+        console.log('Form is invalid');
+      }
+    }
+   
   }
 
   onSubmitEvent(){
     if (this.eventForm.valid && this.eventImg) {
       let Obj = {
         'eventFile': this.eventImg,
-        'eventName':this.eventForm.get('eventName')?.value
+        'eventName':this.eventForm.get('eventName')?.value,
+        'position': this.eventForm.get('position')?.value
       }
       this.adminService.addEvent(Obj).subscribe((res)=>{
         this.eventForm.reset();
@@ -222,12 +254,37 @@ export class AdminComponent implements OnInit {
     }
   }
   onSubmitResultForm(): void {
-    if (this.resultForm.valid) {
+    if(this.resultEdit){
+        let obj ={
+          resultImage:this.resultImg,
+          position:this.resultForm.get('position')?.value
+        
+      }
+      this.adminService.updateResult(this.resultUkey,obj).subscribe((res)=>{
+        alert("Result updated Successfuly")
+        this.resultForm.reset();
+        this.resultImage.nativeElement.value = '';
+        this.resultImg = null;
+        this.getResult();
+        this.resultEdit= false;
+       
+      })
+    }
+    if (this.resultForm.valid && this.resultImg) {
       const formData = new FormData();
-      formData.append('resultImage', this.resultForm.get('resultImage')?.value);
+      let obj ={
+        resultImage:this.resultImg,
+        position:this.resultForm.get('position')?.value
+      }
+     
 
-      this.adminService.addResult(formData).subscribe((res)=>{
+      this.adminService.addResult(obj).subscribe((res)=>{
         alert("Result added Successfuly")
+        this.resultForm.reset();
+        this.resultImage.nativeElement.value = '';
+        this.resultImg = null;
+        this.getResult();
+       
       })
       // Implement the actual submission logic here (e.g., sending formData to a server)
     } else {
@@ -475,5 +532,33 @@ this.adminService.getEvent().subscribe((Res)=>{
       alert("Teacher deleted Successfully.");
       this.getTeacher();
     }) 
+  }
+
+  edit(dataItem:any){
+    this.bannerEdit= true;
+    this.bannerImg = dataItem.bannerFile;
+    this.bannerForm.get("position")?.setValue(dataItem.position);
+    this.bannerUkey = dataItem._id
+
+  }
+
+  getResult(){
+    this.adminService.getResult().subscribe((res)=>{
+      this.resultList = res
+    })
+  }
+
+  deleteResult(item:any){
+    this.adminService.deleteResult(item._id).subscribe((res)=>{
+      alert("Result deleted Successfully.");
+      this.getResult();
+    }) 
+  }
+  editResult(dataItem:any){
+    this.resultEdit=  true;
+    this.resultForm.get("position")?.setValue(dataItem.position);
+    this.resultImage = dataItem.resultImage;
+    this.resultUkey = dataItem._id;
+
   }
 }

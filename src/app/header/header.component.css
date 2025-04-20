@@ -40,7 +40,7 @@
         color: blue;
 }
 .mu-top-phone span{
-    font-size: 20px;
+    font-size:15px;
     padding-left: 10px;
     color: black;
 }
@@ -71,12 +71,6 @@
 
 }
 
-
-
-#top-menu a{
-    font-size: 20px;
-}
-
 a{
     cursor: pointer;
  }
@@ -85,17 +79,8 @@ a{
  .logo3 {
     display: none;
  }
- .logo2{
-    position: relative;
-    top: 3px;
-    right: 24%;
 
- }
- #mu-header .mu-header-area .mu-header-top-right .mu-top-social-nav {
-    display: inline-block;
-    position: absolute !important;
-    top: -39px !important;
-}
+
  .navbar-brand img{
     top:-32px;
     height:100px
@@ -103,31 +88,17 @@ a{
 
  .mu-header-top-left{
     text-align: center;
- }
- #mu-header .mu-header-area .mu-header-top-right{
     position: relative;
-align-items: center;
-text-align: center;
-top: 6px;
+    left: 0px;
  }
+
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px){
     .logo3 {
        
       display: none;
  } 
- .logo2{
-    position: relative;
-    top: 3px;
-    right: 3%;
 
-     }
-     #mu-header .mu-header-area .mu-header-top-right{
-        position: relative;
-align-items: center;
-text-align: center;
-top: 6px;
-     }
 }
 @media only screen and (min-width: 992px) {
     .logo3 {
@@ -141,18 +112,7 @@ top: 6px;
         letter-spacing: 2px;
         color: blue;
  } 
- .logo2{
-    position: relative;
-    top: 3px;
-    right: 3%;
 
-     }
-     #mu-header .mu-header-area .mu-header-top-right{
-        position: relative;
-align-items: center;
-text-align: center;
-top: 6px;
-     }
 }
 
 @media only screen and (max-width: 767px) and (min-width: 600px)  {
@@ -282,3 +242,136 @@ text-decoration: none !important;
    
 }
 
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .social-icons a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Apply circular style ONLY if it doesn't have class "logo" */
+  .social-icons a:not(.logo) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #000;
+  }
+  
+  .social-icons a:not(.logo):hover {
+    transform: scale(1.1);
+  }
+  
+  /* Platform-specific hover background colors */
+  .social-icons a.facebook:hover:not(.logo) {
+    background-color: #1877f2;
+  }
+  
+  .social-icons a.instagram:hover:not(.logo) {
+    background-color: #e1306c;
+  }
+  
+  .social-icons a.youtube:hover:not(.logo) {
+    background-color: #ff0000;
+  }
+  .mu-header-top-right {
+    text-align: right;
+  }
+
+  .mu-header-area {
+   
+    padding: 10px 20px;
+    font-size: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Flex for left section */
+  .mu-header-top-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  /* Email and phone spacing */
+  .mu-top-email, .mu-top-phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .mu-top-email i,
+  .mu-top-phone i {
+    color: #333;
+  }
+  
+  /* Font size for contact text */
+  .mu-top-email span,
+  .mu-top-phone span {
+    font-size: 15px;
+    color: #333;
+  }
+  
+  .mu-top-phone a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 4px;
+    font-size: 15px;
+  }
+  
+  /* Right-side (logo + social) alignment */
+  .mu-header-top-right {
+    text-align: right;
+  }
+  
+  /* Social icons layout */
+  .social-icons {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  /* Social icon styles */
+  .social-icons a:not(.logo) {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 18px;
+  }
+  
+  .social-icons a:not(.logo):hover {
+    transform: scale(1.1);
+  }
+  
+  /* Specific hover background colors */
+  .social-icons a.facebook:hover:not(.logo) {
+    background-color: #1877f2;
+  }
+  .social-icons a.instagram:hover:not(.logo) {
+    background-color: #e1306c;
+  }
+  .social-icons a.youtube:hover:not(.logo) {
+    background-color: #ff0000;
+  }
+  
+  /* Logo exclusion */
+  .social-icons a.logo img {
+    height: 40px;
+    width: auto;
+  }
+  

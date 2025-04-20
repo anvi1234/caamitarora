@@ -21,7 +21,7 @@
           <!-- Banner form content here -->
           <h2>Banner Form</h2>
           <form [formGroup]="bannerForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
+            <div class="form-group"  *ngIf="!bannerEdit">
               <label for="youtubeInput">Banner File:</label> &nbsp; &nbsp;<span style="color:red" *ngIf="isLoader">Loading...</span>
               <input type="file" #youtubeInput (change)="onBannerFileChange($event)" class="form-control" id="youtubeInput">
             </div>
@@ -31,7 +31,7 @@
               <input type="number" formControlName="position" class="form-control" id="durationInput">
             </div>
   
-            <button type="submit" class="btn btn-primary" [disabled]="isLoader || !bannerImg">Submit</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!bannerEdit && (isLoader || !bannerImg)">Submit</button>
           </form><br>
           <h2>All Records</h2>
           <div class="table-wrapper">
@@ -48,7 +48,8 @@
                 <td>{{i+1}}</td>
                 <td><img [src]= "item.bannerFile" height="40px" width="60px"></td>
                 <td>
-                  <span class="delete-icon" (click)="bannerDelete(item)">🗑</span>
+                  <span class="delete-icon" (click)="bannerDelete(item)">🗑</span> &nbsp;
+                  <span class="edit-icon" (click)="edit(item)" style="font-size: 20px;">✎</span>
                 </td>
               </tr>
             </tbody>
@@ -187,13 +188,42 @@
           <!-- Result form content here -->
           <h2>Result Form</h2>
           <form [formGroup]="resultForm" (ngSubmit)="onSubmitResultForm()">
-            <div class="form-group">
-              <label for="resultImage">Upload Result Image:</label>
+            <div class="form-group" *ngIf="!resultEdit">
+              <label for="resultImage">Upload Result Image:</label>&nbsp; &nbsp;<span style="color:red" *ngIf="isLoader">Loading...</span>
               <input type="file" formControlName="resultImage" class="form-control" id="resultImage" (change)="onResultChange($event)">
             </div>
-  
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+            <label for="resultImage">Position:</label>
+            <input type="text" formControlName="position" class="form-control" id="resultImage">
+          </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!resultEdit && (isLoader || !resultImg)">Submit</button>
           </form>
+          <h2>All Records</h2>
+          <div class="table-wrapper2">
+          <table class="table table-striped">
+            <thead>
+              <tr >
+                <th>So No</th>
+                <th>Image</th>
+                <th>Position</th>         
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of resultList; let i= index">
+                <td>{{i+1}}</td>
+              <td><img [src]= "item.resultImage" height="40px" width="60px"></td>
+              <td>{{item.position}}</td>
+                  <!--   <td>{{item.studentDetails}}</td>
+                <td>{{item.reviewDescription}}</td> -->
+                <td>
+                  <span class="delete-icon" (click)="deleteResult(item)">🗑</span> &nbsp;
+                  <span class="edit-icon" (click)="editResult(item)" style="font-size: 20px;">✎</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         </div>
   
         <div *ngIf="selectedForm === 'buyCourse'">
@@ -260,6 +290,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Subject</th>
+                <th>Contact Number</th>
                 <th>Message</th>
                 <th>Action</th>
               </tr>
@@ -270,6 +301,7 @@
                 <td>{{ item.name}}</td>
                 <td>{{ item.email }}</td>
                 <td>{{ item.subject}}</td>
+                <td>{{ item.phone}}</td>
                 <td>{{ item.message}}</td>
                 <td>
                   <span class="delete-icon" (click)="deleteContact(item)">🗑</span>
@@ -292,6 +324,11 @@
               <label for="durationInput">Event Name:</label>
               <input type="text" formControlName="eventName" class="form-control" id="durationInput">
             </div>
+
+            <div class="form-group">
+              <label for="durationInput">Position:</label>
+              <input type="number" formControlName="position" class="form-control" id="durationInput">
+            </div>
   
             <button type="submit" class="btn btn-primary" [disabled]="isLoader || !eventImg">Submit</button>
           </form><br>
@@ -303,6 +340,7 @@
                 <th>So No</th>
                 <th>Event Image</th>
                 <th>Event Name</th>
+                <th>Position</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -311,6 +349,7 @@
                 <td>{{i+1}}</td>
                 <td><img [src]= "item.eventFile" height="40px" width="60px"></td>
                 <td>{{item.eventName}}</td>
+                <td>{{item.position}}</td>
                 <td>
                   <span class="delete-icon" (click)="eventDelete(item)">🗑</span>
                 </td>

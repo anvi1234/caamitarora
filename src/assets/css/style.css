@@ -1096,7 +1096,7 @@ img {
  COURSES PAGE
 ====================*/
 #mu-page-breadcrumb {
- background-image: url(../img/F\ .png);
+ background-image: url(../img/F.png);
  font-family:cursive;
  color: white;
   display: inline;
@@ -1840,7 +1840,8 @@ img {
 }
 #mu-contact .mu-contact-area .mu-contact-content .mu-contact-left .contactform input[type="text"],
 #mu-contact .mu-contact-area .mu-contact-content .mu-contact-left .contactform input[type="email"],
-#mu-contact .mu-contact-area .mu-contact-content .mu-contact-left .contactform input[type="url"] {
+#mu-contact .mu-contact-area .mu-contact-content .mu-contact-left .contactform input[type="url"],
+#mu-contact .mu-contact-area .mu-contact-content .mu-contact-left .contactform input[type="number"] {
   border: none;
   border: 1px solid #ddd;
   color: #555;

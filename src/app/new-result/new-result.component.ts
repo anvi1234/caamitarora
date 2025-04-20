@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin/admin.service';
 
 @Component({
   selector: 'app-new-result',
@@ -7,20 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewResultComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private adminSer: AdminService
+  ) { }
 
   ngOnInit(): void {
+    this.getResult()
   }
 
-  public result = [
-
-    {id:1, img:"../../assets/img/result/1.jpeg"},
-    {id:2, img:"../../assets/img/result/2.jpeg"},
-    {id:3, img:"../../assets/img/result/3.jpeg"},
-    {id:4, img:"../../assets/img/result/5.png"},
-    {id:5, img:"../../assets/img/result/2.png"},
-    {id:6, img:"../../assets/img/result/4.png"},
-    {id:7, img:"../../assets/img/result/3.png"},
-    {id:8, img:"../../assets/img/result/1.png"}
+  public result:any = [
   ]
+
+  getResult(){
+    this.adminSer.getResult().subscribe((res:any)=>{
+      this.result = res;
+    })
+  }
 }

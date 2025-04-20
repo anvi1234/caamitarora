@@ -34,6 +34,7 @@
  .responsive-image-banner {
     width: 100%;
     margin: 0 auto;
+    height: 100%;
         background-size: cover;
         object-fit: contain;
     
@@ -177,7 +178,7 @@
    height: auto;
    width: 100%;
    font-size: 50px;
-   opacity: .4;
+   opacity: .2;
    height: 100%;
 
    background-color: grey;
@@ -272,7 +273,7 @@
 @media (max-width: 767px) {
 
 }
-.mu-our-teacher-social h4{
+.mu-our-social h4{
 color: white;
 position: absolute;
   top: 50%;
@@ -280,4 +281,16 @@ position: absolute;
   transform: translate(-50%, -50%);
 align-items: center;
 font-size: 20px;
+}
+.text-css{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 17px;
+  width: 90%;
+  text-align: center;
+  padding: auto;
+  background-color: rgba(224, 153, 20, 0.7); /* Semi-transparent overlay */
 }

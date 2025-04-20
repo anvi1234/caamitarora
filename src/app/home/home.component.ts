@@ -56,6 +56,8 @@ export class HomeComponent implements OnInit{
 	showNavigationIndicators = false;
   public testinomial :any[] =[];
   alerts!: Alert[];
+  isHovered: boolean = false;
+  isHovered2: boolean = false;
 
   
   constructor(private router: Router,
@@ -64,6 +66,7 @@ export class HomeComponent implements OnInit{
     this.createContact();
     this.getTestinomial();
     this.getEvent();
+    this.EventData.forEach(() => this.showOverlays.push(false));
   } 
    
   ngAfterViewInit(){
@@ -86,7 +89,17 @@ export class HomeComponent implements OnInit{
     });
   }
 
+  showOverlays: boolean[] = [];
 
+  // Methods to control overlay visibility
+  onMouseEnter(index: number) {
+    console.log("index", index)
+    this.showOverlays[index] = true;
+  }
+
+  onMouseLeave(index: number) {
+    this.showOverlays[index] = false;
+  }
 
   public EventData:any = [
     {
@@ -122,14 +135,29 @@ export class HomeComponent implements OnInit{
     this.contactForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      subject: new FormControl(''),
+      subject: new FormControl('',[Validators.required]),
+      phone:new FormControl('', [Validators.required,Validators.maxLength(10), Validators.pattern(/^\d{0,10}$/)]),
       message: new FormControl('', [Validators.required])
     });
   }
 
+  allowOnlyNumbers(event: KeyboardEvent): void {
+    const charCode = event.key.charCodeAt(0);
+    if (charCode < 48 || charCode > 57) {
+      event.preventDefault(); // Block non-numeric keys
+    }
+  }
+  
+  restrictMaxLength(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.value.length > 10) {
+      input.value = input.value.slice(0, 10);
+      this.contactForm.get('phone')?.setValue(input.value);
+    }
+  }
   getEvent(){
     this.adminSer.getEvent().subscribe((Res)=>{
-      this.EventData = Res
+      this.EventData = Res.sort((a, b) => a.position - b.position);
     })
   }
 
@@ -153,5 +181,19 @@ export class HomeComponent implements OnInit{
       this.isVisible = false;  // Hide the div after 5 seconds
     }, 2000);  // 5000ms = 5 seconds
   }
- 
+  onMouseEnterImg(){
+    this.isHovered = true;
+  }
+  
+  onMouseLeaveImg(){
+    this.isHovered = false;
+  }
+  onMouseEnterImg2(){
+    this.isHovered2 = true;
+  }
+  
+  onMouseLeaveImg2(){
+    this.isHovered2 = false;
+  }
 }
+
