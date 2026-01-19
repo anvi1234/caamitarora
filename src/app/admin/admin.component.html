@@ -4,6 +4,7 @@
         <ul class="nav nav-pills nav-stacked">
           <li class="active"><a href="#section1">Dashboard</a></li>
           <li><a (click)="showForm('banner')">Banner</a></li>
+           <li><a (click)="showForm('demoVideo')">Demo Video</a></li>
           <li><a (click)="showForm('teacher')">Teacher</a></li>
           <li><a (click)="showForm('review')">Review</a></li>
           <li><a (click)="showForm('result')">Result</a></li>
@@ -16,7 +17,7 @@
       </div>
   
       <!-- Form section -->
-      <div class="col-sm-7">
+      <div class="col-sm-9">
         <div *ngIf="selectedForm === 'banner'">
           <!-- Banner form content here -->
           <h2>Banner Form</h2>
@@ -40,6 +41,7 @@
               <tr >
                 <th>So No</th>
                 <th>Banner Image</th>
+                 <th>Position</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -47,6 +49,7 @@
               <tr *ngFor="let item of bannerList; let i= index">
                 <td>{{i+1}}</td>
                 <td><img [src]= "item.bannerFile" height="40px" width="60px"></td>
+                <td>{{item.position}}</td>
                 <td>
                   <span class="delete-icon" (click)="bannerDelete(item)">🗑</span> &nbsp;
                   <span class="edit-icon" (click)="edit(item)" style="font-size: 20px;">✎</span>
@@ -292,6 +295,7 @@
                 <th>Subject</th>
                 <th>Contact Number</th>
                 <th>Message</th>
+                 <th>Date</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -303,6 +307,7 @@
                 <td>{{ item.subject}}</td>
                 <td>{{ item.phone}}</td>
                 <td>{{ item.message}}</td>
+                     <td>{{item?.date  | date:'mediumDate' }}</td>
                 <td>
                   <span class="delete-icon" (click)="deleteContact(item)">🗑</span>
                 </td>
@@ -314,8 +319,8 @@
         <div *ngIf="selectedForm === 'event'">
           <!-- Banner form content here -->
           <h2>Event Form</h2>
-          <form [formGroup]="eventForm" (ngSubmit)="onSubmitEvent()">
-            <div class="form-group">
+          <form [formGroup]="eventForm">
+            <div class="form-group" *ngIf="!eventEdit">
               <label for="youtubeInput">Event File:</label> &nbsp; &nbsp;<span style="color:red" *ngIf="isLoader">Loading...</span>
               <input type="file" #eventInput (change)="onEventFileChange($event)" class="form-control" id="youtubeInput">
             </div>
@@ -329,8 +334,8 @@
               <label for="durationInput">Position:</label>
               <input type="number" formControlName="position" class="form-control" id="durationInput">
             </div>
-  
-            <button type="submit" class="btn btn-primary" [disabled]="isLoader || !eventImg">Submit</button>
+            <button type="submit"  *ngIf="eventEdit" class="btn btn-primary" (click)="onSubmitEvent()">Update</button>
+            <button type="submit"  *ngIf="!eventEdit" class="btn btn-primary" (click)="onSubmitEvent()" [disabled]="isLoader || !eventImg">Submit</button>
           </form><br>
           <h2>All Records</h2>
           <div class="table-wrapper">
@@ -350,8 +355,61 @@
                 <td><img [src]= "item.eventFile" height="40px" width="60px"></td>
                 <td>{{item.eventName}}</td>
                 <td>{{item.position}}</td>
-                <td>
-                  <span class="delete-icon" (click)="eventDelete(item)">🗑</span>
+               
+                <td style="font-size: 20px;cursor: pointer;">
+                  <span class="delete-icon" (click)="eventDelete(item)">🗑</span>&nbsp;&nbsp;&nbsp;
+                  <span class="edit-icon" (click)="editEvent(item)" style="font-size: 20px;cursor: pointer;">✎</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+         <div *ngIf="selectedForm === 'demoVideo'">
+          <!-- Banner form content here -->
+          <h2>Event Form</h2>
+          <form [formGroup]="demoForm">
+           
+  
+            <div class="form-group">
+              <label for="durationInput">Title:</label>
+              <input type="text" formControlName="title" class="form-control" >
+            </div>
+              <div class="form-group">
+              <label for="durationInput">URL:</label>
+              <input type="text" formControlName="url" class="form-control" >
+            </div>
+            <div class="form-group">
+              <label for="durationInput">Position:</label>
+              <input type="number" formControlName="position" class="form-control">
+            </div>
+            <button type="submit"  *ngIf="demoEdit" class="btn btn-primary" [disabled]="demoForm.invalid" (click)="onSubmitDemo()">Update</button>
+            <button type="submit"  *ngIf="!demoEdit" class="btn btn-primary" [disabled]="demoForm.invalid" (click)="onSubmitDemo()">Submit</button>
+          </form><br>
+
+          <h2>All Records</h2>
+          <div class="table-wrapper">
+          <table class="table table-striped">
+            <thead>
+              <tr >
+                <th>So No</th>
+                <th>Title Name</th>
+                <th>Position</th>
+                <th>URL</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of eventList; let i= index">
+                <td>{{i+1}}</td>
+                <td><img [src]= "item.eventFile" height="40px" width="60px"></td>
+                <td>{{item.title}}</td>
+                <td>{{item.position}}</td>
+                  <td>{{item.url}}</td>
+               
+                <td style="font-size: 20px;cursor: pointer;">
+                  <span class="delete-icon" (click)="demoDelete(item)">🗑</span>&nbsp;&nbsp;&nbsp;
+                  <span class="edit-icon" (click)="editDemo(item)" style="font-size: 20px;cursor: pointer;">✎</span>
                 </td>
               </tr>
             </tbody>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,19 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'webapp';
-  constructor(
-    private router: Router
-  ){
-   
+  showLayout = true;
+
+  constructor(private router: Router) {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+       const hiddenRoutes = ['/admin'];
+
+        // Hide header/footer if current route is in hiddenRoutes
+        this.showLayout = !hiddenRoutes.some(route => event.url.startsWith(route));
+      });
   }
+ 
 
  
 }

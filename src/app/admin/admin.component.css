@@ -5,6 +5,9 @@
   background-color: #f1f1f1;
  
 }
+.edit-icon{
+  cursor: pointer;
+}
     
 /* On small screens, set height to 'auto' for the grid */
 @media screen and (max-width: 767px) {

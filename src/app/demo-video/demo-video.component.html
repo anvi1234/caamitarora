@@ -1,0 +1,17 @@
+<div class="video-grid">
+  <div class="video-card" *ngFor="let video of videos">
+    
+    <div class="video-wrapper">
+      <iframe
+        [src]="getEmbedUrl(video.url) | safeUrl"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="video-info">
+      <h3>Video {{ video.title }}</h3>
+    </div>
+
+  </div>
+</div>

@@ -137,7 +137,8 @@ export class HomeComponent implements OnInit{
       email: new FormControl('', [Validators.required, Validators.email]),
       subject: new FormControl('',[Validators.required]),
       phone:new FormControl('', [Validators.required,Validators.maxLength(10), Validators.pattern(/^\d{0,10}$/)]),
-      message: new FormControl('', [Validators.required])
+      message: new FormControl('', [Validators.required]),
+      date: new FormControl(new Date(), [Validators.required]),
     });
   }
 

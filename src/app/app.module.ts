@@ -30,6 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminService } from './admin/admin.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { DemoVideoComponent } from './demo-video/demo-video.component';
+import { SafeUrlPipe } from './demo-video/safe-url.pipe';
 
 
 
@@ -51,7 +54,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CmaFinalComponent,
     HeaderComponent,
     NewResultComponent,
-    AdminComponent
+    AdminComponent,
+    LoginComponent,
+    SafeUrlPipe,
+    DemoVideoComponent
   ],
   imports: [
     
@@ -67,11 +73,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     NgbAlertModule,
     NgxSpinnerModule ,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
  exports:[
   BannerComponent,
-  HeaderComponent
+  HeaderComponent,
+  SafeUrlPipe
  ],
   providers: [AdminService],
   bootstrap: [AppComponent]

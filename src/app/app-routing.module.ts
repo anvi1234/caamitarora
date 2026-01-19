@@ -15,6 +15,8 @@ import { CmaIntermediateComponent } from './ca-course/cma/cma-intermediate/cma-i
 import { HeaderComponent } from './header/header.component';
 import { NewResultComponent } from './new-result/new-result.component';
 import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
+import { DemoVideoComponent } from './demo-video/demo-video.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -25,6 +27,7 @@ const routes: Routes = [
   {path:"ca-course/ca-foundation", component:CaFoundationComponent},
   {path:"ca-course", component:CaCourseComponent},
   {path:"buy-course", component:BuyCourseComponent},
+    {path:"demo-video", component:DemoVideoComponent},
   {path:"cma-course",component: CmaComponent},
   {path:"cma-course/cma-foundation",component: CmaFoundationComponent},
   {path:"cma-course/cma-intermediate",component:CmaIntermediateComponent},
@@ -32,8 +35,9 @@ const routes: Routes = [
   {path:"banner", component:BannerComponent},
   {path:"header", component:HeaderComponent},
   {path:"result", component:NewResultComponent},
-  {path:"admin", component:AdminComponent},
-  { path: '**', component: HomeComponent } ,
+  {path:"admin", component:LoginComponent},
+  {path:"b8e2f6eb5b54b1ef1e5e8f302ff628f6ba674fbec6ff1571318dd43259a2df6f", component:AdminComponent},
+  { path: '**', component: HomeComponent },
  
   { path: '**', redirectTo: 'home' },
   { path: '**', redirectTo: '', pathMatch: 'full' }

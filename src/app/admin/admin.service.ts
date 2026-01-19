@@ -34,6 +34,10 @@ export class AdminService {
     return this.http.put(`${this.apiUrl}/banner/update-banner/${id}`, banner);
   }
 
+  updateEvent(data:any,id:any){
+    return this.http.put(`${this.apiUrl}/event/update-event/${id}`, data);
+  }
+
   // Teacher Methods
   addTeacher(teacher: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/teacher/add-teacher`, teacher);
@@ -124,5 +128,23 @@ export class AdminService {
     console.log(errorMessage);
     return throwError(errorMessage);
   }
+
+   addDemo(contact: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/demo/add`, contact);
+  }
+
+  getDemo(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/demo/list`);
+  }
+
+  deleteDemo(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/demo/delete/${id}`);
+  }
+
+  updateDemo(id:string,data:any):Observable<any>{
+    return this.http.put(`${this.apiUrl}/demo/update/${id}`,data);
+  
+  }
+ 
 
 }
